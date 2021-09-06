@@ -86,7 +86,15 @@ target_link_libraries(${PROJECT_NAME}-example
     ${PROJECT_NAME} 
     ifopt::ifopt_ipopt
 )
-add_test(${PROJECT_NAME}-example ${PROJECT_NAME}-example)
+
+add_executable(test_a1
+        test/test_a1.cc
+        )
+target_link_libraries(test_a1
+        PRIVATE
+        ${PROJECT_NAME}
+        ifopt::ifopt_ipopt
+)
 
 # unit tests of costs/constraints
 find_package(GTest QUIET)
